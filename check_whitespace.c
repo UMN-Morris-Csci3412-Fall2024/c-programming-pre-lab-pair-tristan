@@ -25,10 +25,12 @@ char const *strip(char const *str) {
   }
 
   // If num_spaces >= size then that means that the string
-  // consisted of nothing but spaces, so we'll return the
-  // empty string.
+  // consisted of nothing but spaces, so we'll return an
+  // empty dynamically allocated string.
   if (num_spaces >= size) {
-    return "";
+    char* result = (char*) calloc(1, sizeof(char));
+    result[0] = '\0';
+    return result;
   }
 
   // Allocate a slot for all the "saved" characters
