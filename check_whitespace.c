@@ -59,7 +59,9 @@ int is_clean(char const *str) {
   // the first is less than the second (in alphabetical order),
   // 0 if they're equal, and a positive value if the first is
   // greater than the second.
-  int result = strcmp(str, cleaned);
+  int result = strcmp(str, cleaned) == 0;
+
+  free((void*)cleaned);
 
   return result == 0;
 }
